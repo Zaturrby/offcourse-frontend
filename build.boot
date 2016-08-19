@@ -1,5 +1,5 @@
 (set-env!
- :source-paths    #{"src/js" "src/cljs" "src/cljc"}
+ :source-paths    #{"src/js" "src/cljs" "src/cljc" "../offcourse-styles/src"}
  :resource-paths  #{"resources"}
  :dependencies '[[adzerk/boot-cljs              "1.7.228-1"      :scope "test"]
                  [adzerk/boot-cljs-repl         "0.3.2"          :scope "test"]
@@ -55,7 +55,7 @@
 
 (deftask css []
   (set-env! :source-paths #(conj % "src/clj"))
-  (task-options! garden {:styles-var   'offcourse.styles.index/base
+  (task-options! garden {:styles-var   'client-styles.index/client-styles
                          :vendors ["webkit" "moz"]
                          :auto-prefix #{:user-select :column-count :column-gap}
                          :output-to    "css/main.css"
