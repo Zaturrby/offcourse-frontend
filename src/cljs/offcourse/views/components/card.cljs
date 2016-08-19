@@ -8,21 +8,30 @@
                 {:keys [toggle-checkpoint] :as handlers}]
   [:.container
    [:.card
-    [:.card--section
-     [:.card--folded-corner]
-     [:a.title {:href (course-url curator course-slug)} goal]]
-    [:.card--section
-     [:img.card--img {:src "http://lorempixel.com/400/400/cats"}]
-     [:.card--meta
-      [:h6.card--title "John Diddididoe"]
-      [:h6.card--title "Expert"]
-      [:h6.card--title "Posts: 10 Learners: 40 Forked: 5"]]
-    ]
-    [:.card--section (item-list :todo checkpoints
+    [:.card--frontside
+     [:.card--section
+      [:.card--info-corner "I"]
+      [:a.card--title {:href (course-url curator course-slug)} goal]]
+     [:.card--section (item-list :todo checkpoints
                                 {:checkpoint-url (partial checkpoint-url curator course-slug)}
                                 {:toggle-checkpoint (partial toggle-checkpoint course-id)}
-                                (:trackable? (meta course)))]
-    [:.card--section (labels (:tags (meta course)) helpers)]]])
+                                (:trackable? (meta course)))]]
+    [:.card--backside
+     [:.card--section
+      [:img.card--img {:src "http://placehold.it/150x150"}]
+      [:.card--meta
+       [:h6.card--smalltitle "John Diddididoe"]
+       [:h6.card--smalltitle "Expert"]]
+      [:.card--info-corner-back "I"]]
+     [:.card--section
+      [:.card--stats
+      [:span.card--smalltext "Posts: "]
+      [:span.card--smalltitle "10"]
+      [:span.card--smalltext " Learners: "]
+      [:span.card--smalltitle "40"]
+      [:span.card--smalltext " Forked: "]
+      [:span.card--smalltitle "5"]]]
+     [:.card--section (labels (:tags (meta course)) helpers)]]]])
 
 (rum/defc cards [items helpers handlers]
   [:.cards (map #(rum/with-key (card % helpers handlers) (:course-id %)) items)])
