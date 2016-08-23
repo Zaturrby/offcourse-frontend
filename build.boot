@@ -1,8 +1,7 @@
 (set-env!
- :source-paths    #{"src/js" "src/cljs" "src/cljc" }
+ :source-paths    #{"src/js" "src/cljs" "src/cljc" "../offcourse-styles/src"}
  :resource-paths  #{"resources"}
- :dependencies '[[offcourse/styles              "0.1.8-SNAPSHOT"]
-                 [adzerk/boot-cljs              "1.7.228-1"      :scope "test"]
+ :dependencies '[[adzerk/boot-cljs              "1.7.228-1"      :scope "test"]
                  [adzerk/boot-cljs-repl         "0.3.2"          :scope "test"]
                  [adzerk/boot-reload            "0.4.10"         :scope "test"]
                  [ring/ring-devel               "1.3.2"          :scope "test"]
@@ -30,6 +29,7 @@
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]
                  [medley                      "0.7.0"]
                  [env/faker                   "0.4.0"]
+                 ; [offcourse/styles              "0.1.8-SNAPSHOT"]
                  [compojure                   "1.4.0"]
                  [hiccup                      "1.0.5"]
                  [rum                         "0.6.0"]
