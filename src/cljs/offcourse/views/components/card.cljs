@@ -14,19 +14,20 @@
       [:.card--earmark ]]
      [:.card--section
       [:.card--rating
-       [:.card--rating-dot {:data-dot-active "true"} ]
+       [:.card--rating-dot (if (< 0.5 rand) 
+                            ({:data-dot-active "true"}))]
        [:.card--rating-dot {:data-dot-active "true"} ]
        [:.card--rating-dot ]
        [:.card--rating-dot ]
        [:.card--rating-dot ]]
-      [:.label "Following"]
-      [:img.card--picked {:src "http://imageshack.com/a/img923/3930/J18Srn.png"}]]
+      [:.card--following "Following"]
+      [:img.card--picked {:src "http://imageshack.com/a/img923/1755/lDeG76.png"}]]
      [:.card--section (item-list :todo checkpoints
                                 {:checkpoint-url (partial checkpoint-url curator course-slug)}
                                 {:toggle-checkpoint (partial toggle-checkpoint course-id)}
                                 (:trackable? (meta course)))]
      [:.card--section
-       [:.label      "Start"]
+       [:.card--button      "Start"]
        [:.card--info-corner "I"]]]
     ; [:.card--backside
     ;  [:.card--section
