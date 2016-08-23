@@ -1,7 +1,8 @@
 (set-env!
- :source-paths    #{"src/js" "src/cljs" "src/cljc" "../offcourse-styles/src"}
+ :source-paths    #{"src/js" "src/cljs" "src/cljc" }
  :resource-paths  #{"resources"}
- :dependencies '[[adzerk/boot-cljs              "1.7.228-1"      :scope "test"]
+ :dependencies '[[offcourse/styles              "0.1.8-SNAPSHOT"]
+                 [adzerk/boot-cljs              "1.7.228-1"      :scope "test"]
                  [adzerk/boot-cljs-repl         "0.3.2"          :scope "test"]
                  [adzerk/boot-reload            "0.4.10"         :scope "test"]
                  [ring/ring-devel               "1.3.2"          :scope "test"]
@@ -12,20 +13,20 @@
                  [hashobject/boot-s3            "0.1.2-SNAPSHOT" :scope "test"]
                  [crisptrutski/boot-cljs-test   "0.2.2-SNAPSHOT" :scope "test"]
                  [boot-environ                  "1.0.2"          :scope "test"]
-                 [boot-codox "0.9.5" :scope "test"]
+                 [boot-codox                    "0.9.5" :scope "test"]
                  [environ                       "1.0.2"]
                  [org.martinklepsch/boot-garden "1.3.0-0"]
-                 [metosin/ring-http-response  "0.6.5"]
-                 [com.stuartsierra/component  "0.3.1"]
-                 [org.clojure/clojurescript   "1.9.89"]
-                 [org.clojure/core.async      "0.2.374"]
-                 [org.clojure/core.match      "0.3.0-alpha4"]
-                 [prismatic/schema            "1.0.4"]
-                 [prismatic/plumbing          "0.5.2"]
-                 [com.rpl/specter             "0.9.2"]
-                 [danlentz/clj-uuid           "0.1.6"]
-                 [markdown-clj                "0.9.77"]
-                 [cljs-ajax "0.5.3"]
+                 [metosin/ring-http-response    "0.6.5"]
+                 [com.stuartsierra/component    "0.3.1"]
+                 [org.clojure/clojurescript     "1.9.89"]
+                 [org.clojure/core.async        "0.2.374"]
+                 [org.clojure/core.match        "0.3.0-alpha4"]
+                 [prismatic/schema              "1.0.4"]
+                 [prismatic/plumbing            "0.5.2"]
+                 [com.rpl/specter               "0.9.2"]
+                 [danlentz/clj-uuid             "0.1.6"]
+                 [markdown-clj                  "0.9.77"]
+                 [cljs-ajax                     "0.5.3"]
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]
                  [medley                      "0.7.0"]
                  [env/faker                   "0.4.0"]
@@ -60,7 +61,8 @@
                          :auto-prefix #{:user-select :column-count :column-gap}
                          :output-to    "css/main.css"
                          :pretty-print true})
-  (garden))
+  (comp (show "--classpath")
+        (garden)))
 
 (deftask deps [])
 
