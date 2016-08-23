@@ -61,8 +61,7 @@
                          :auto-prefix #{:user-select :column-count :column-gap}
                          :output-to    "css/main.css"
                          :pretty-print true})
-  (comp (show "--classpath")
-        (garden)))
+  (comp (garden)))
 
 (deftask deps [])
 
