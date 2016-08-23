@@ -27,7 +27,7 @@
                                 (:trackable? (meta course)))]
      [:.card--section
        [:.card--button      "Start"]
-       [:.card--info-corner "I"]]]
+       [:.card--info-corner "i"]]]
     [:.card--backside
      [:.card--section
       [:a.card--title {:href (course-url curator course-slug)} goal]

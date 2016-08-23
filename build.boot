@@ -29,7 +29,7 @@
                  [com.lucasbradstreet/cljs-uuid-utils "1.0.2"]
                  [medley                      "0.7.0"]
                  [env/faker                   "0.4.0"]
-                 ; [offcourse/styles              "0.1.8-SNAPSHOT"]
+                 [offcourse/styles              "0.1.8-SNAPSHOT"]
                  [compojure                   "1.4.0"]
                  [hiccup                      "1.0.5"]
                  [rum                         "0.6.0"]
