@@ -43,10 +43,11 @@
         [:span.card--stats-num "10"]
         [:span.card--stats-title " Learners: "]
         [:span.card--stats-num "40"]
-        [:span.card--stats-title " Forked: "]
-        [:span.card--stats-num "5"]]]]
+        ; [:span.card--stats-title " Forked: "]
+        ; [:span.card--stats-num "5"]
+        ]]]
      [:.card--section 
-      [:p.card--text "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition."]]
+      [:p.card--text "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate."]]
       
      [:.card--section (labels (:tags (meta course)) helpers)]]
      ]])
