@@ -14,8 +14,7 @@
       [:.card--earmark ]]
      [:.card--section
       [:.card--rating
-       [:.card--rating-dot (if (< 0.5 rand) 
-                            ({:data-dot-active "true"}))]
+       [:.card--rating-dot {:data-dot-active "true"} ]
        [:.card--rating-dot {:data-dot-active "true"} ]
        [:.card--rating-dot ]
        [:.card--rating-dot ]
@@ -29,22 +28,27 @@
      [:.card--section
        [:.card--button      "Start"]
        [:.card--info-corner "I"]]]
-    ; [:.card--backside
-    ;  [:.card--section
-    ;   [:img.card--img {:src "http://placehold.it/150x150"}]
-    ;   [:.card--meta
-    ;    [:h6.card--smalltitle "John Diddididoe"]
-    ;    [:h6.card--smalltitle "Expert"]]
-    ;   [:.card--info-corner-back "I"]]
-    ;  [:.card--section
-    ;   [:.card--stats
-    ;   [:span.card--smalltext "Posts: "]
-    ;   [:span.card--smalltitle "10"]
-    ;   [:span.card--smalltext " Learners: "]
-    ;   [:span.card--smalltitle "40"]
-    ;   [:span.card--smalltext " Forked: "]
-    ;   [:span.card--smalltitle "5"]]]
-    ;  [:.card--section (labels (:tags (meta course)) helpers)]]
+    [:.card--backside
+     [:.card--section
+      [:a.card--title {:href (course-url curator course-slug)} goal]
+      [:.card--earmark ]]
+     [:.card--section
+      [:img.card--img {:src "http://placehold.it/150x150"}]
+      [:.card--meta
+       [:.div
+        [:h6.card--author "John Diddididoe"]
+        [:h6.card--author-status "Expert"]]
+       [:.card--stats
+        [:span.card--stats-title "Posts: "]
+        [:span.card--stats-num "10"]
+        [:span.card--stats-title " Learners: "]
+        [:span.card--stats-num "40"]
+        [:span.card--stats-title " Forked: "]
+        [:span.card--stats-num "5"]]]]
+     [:.card--section 
+      [:p.card--text "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition."]]
+      
+     [:.card--section (labels (:tags (meta course)) helpers)]]
      ]])
 
 (rum/defc cards [items helpers handlers]
