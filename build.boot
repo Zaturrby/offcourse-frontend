@@ -41,7 +41,8 @@
                  [cljsjs/auth0-lock           "9.2.1-0"]
                  [cljsjs/react                "0.14.3-0"]
                  [cljsjs/react-dom            "0.14.3-1"]
-                 [cljsjs/react-dom-server     "0.14.3-0"]])
+                 [cljsjs/react-dom-server     "0.14.3-0"]
+                 [danielsz/boot-autoprefixer  "0.0.7"]])
 
 (require
  '[adzerk.boot-cljs      :refer [cljs]]
@@ -52,7 +53,8 @@
  '[environ.boot :refer [environ]]
  '[pandeiro.boot-http    :refer [serve]]
  '[codox.boot :refer [codox]]
- '[hashobject.boot-s3    :refer :all])
+ '[hashobject.boot-s3    :refer :all]
+ '[danielsz.autoprefixer :refer [autoprefixer]])
 
 (deftask css []
   (set-env! :source-paths #(conj % "src/clj"))
@@ -60,8 +62,11 @@
                          :vendors ["webkit" "moz"]
                          :auto-prefix #{:user-select :column-count :column-gap}
                          :output-to    "css/main.css"
-                         :pretty-print true})
-  (comp (garden)))
+                         :pretty-print true}
+                 autoprefixer {:files ["main.css"]
+                               :browsers "last 5 versions"})
+  (comp (garden)
+        (autoprefixer)))
 
 (deftask deps [])
 
@@ -123,7 +128,7 @@
   identity)
 
  (deftask deploy-staging []
-   (task-options! s3-sync #(assoc % :bucket "offcourse-staging"))
+   (task-options! s3-sync #(assoc % :bucket "offcourse-designteam"))
    (comp (deploying)
          (prod)
          (s3-sync)))
